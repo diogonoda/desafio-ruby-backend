@@ -74,3 +74,18 @@ Adicionalmente, tentaremos verificar a sua familiarização com as bibliotecas p
 ---
 
 Boa sorte!
+
+
+# My Solution
+
+## ToDo
+
+- [ ] Create a rails application running on docker
+- [ ] Setup testing tools
+- [ ] Build an API to receive the CNAB file (mocked response)
+- [ ] Build an API to retrieve transactions list (mocked data)
+- [ ] Create database and model layer
+- [ ] Implement data parsing and persistence
+- [ ] Implement data extraction
+- [ ] Create the frontend layer with form for file input
+- [ ] Create the frontend layer with listing operations
