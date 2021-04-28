@@ -78,9 +78,37 @@ Boa sorte!
 
 # My Solution
 
+## Setup
+### Project dependencies
+*  [`docker`](https://docs.docker.com/install/)
+*  [`docker-compose`](https://docs.docker.com/compose/install/)
+
+### Credentials
+Create a `.env` and a `.postgres_env` according to sample files, `.env.sample` and `.postgres_env.sample`.
+In those files you need to set database credentials and hostname.
+
+**If you're using the docker-compose from this project, the $DATABASE_HOST must be `postgres`.**
+
+### Container setup
+Build the containers for the application
+```
+$ docker-compose build
+```
+
+Create database and load config data
+```
+$ docker-compose run webapp bundle exec rails db:setup
+```
+
+### Running the application
+Let docker compose do the job for us
+```
+$ docker-compose up
+```
+
 ## ToDo
 
-- [ ] Create a rails application running on docker
+- [x] Create a rails application running on docker
 - [ ] Setup testing tools
 - [ ] Build an API to receive the CNAB file (mocked response)
 - [ ] Build an API to retrieve transactions list (mocked data)
