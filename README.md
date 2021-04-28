@@ -106,10 +106,22 @@ Let docker compose do the job for us
 $ docker-compose up
 ```
 
+### Testing
+Run tests using rspec
+```
+$ docker-compose run webapp bundle exec rspec
+```
+
+### Code Linter
+Code quality evaluation is available with rubocop
+```
+$ docker-compose run webapp bundle exec rubocop
+```
+
 ## ToDo
 
 - [x] Create a rails application running on docker
-- [ ] Setup testing tools
+- [x] Setup testing tools
 - [ ] Build an API to receive the CNAB file (mocked response)
 - [ ] Build an API to retrieve transactions list (mocked data)
 - [ ] Create database and model layer
