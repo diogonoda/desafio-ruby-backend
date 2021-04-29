@@ -13,6 +13,7 @@ RSpec.describe 'Trades', type: :request do
     end
 
     context 'when document is valid' do
+      let!(:create_trade_type) { create(:trade_type) }
       let(:cnab_filename) { file_fixture('cnab.txt') }
 
       before { post cnab_upload_path, params: { cnab_filename: cnab_filename } }

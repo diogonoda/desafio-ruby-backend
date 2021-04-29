@@ -125,7 +125,7 @@ $ docker-compose run webapp bundle exec rubocop
 - [x] Build an API to receive the CNAB file (mocked response)
 - [x] Build an API to retrieve trades list (mocked data)
 - [x] Create database and model layer
-- [ ] Implement data parsing and persistence
+- [x] Implement data parsing and persistence
 - [ ] Implement data extraction
 - [ ] Create the frontend layer with form for file input
 - [ ] Create the frontend layer with listing operations

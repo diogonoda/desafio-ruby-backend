@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Trade < ApplicationRecord
   belongs_to :trade_type
 

@@ -5,6 +5,8 @@ class TradesController < ApplicationController
 
   def cnab_upload
     if file_valid?
+      CnabFileParser.call(cnab_params[:cnab_filename])
+
       head :ok
     else
       head :unprocessable_entity
