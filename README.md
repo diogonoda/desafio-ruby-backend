@@ -123,7 +123,7 @@ $ docker-compose run webapp bundle exec rubocop
 - [x] Create a rails application running on docker
 - [x] Setup testing tools
 - [x] Build an API to receive the CNAB file (mocked response)
-- [ ] Build an API to retrieve transactions list (mocked data)
+- [x] Build an API to retrieve trades list (mocked data)
 - [ ] Create database and model layer
 - [ ] Implement data parsing and persistence
 - [ ] Implement data extraction
