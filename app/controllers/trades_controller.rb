@@ -7,13 +7,13 @@ class TradesController < ApplicationController
     if file_valid?
       CnabFileParser.call(cnab_params[:cnab_filename])
 
-      head :ok
+      render :summary, status: :ok
     else
-      head :unprocessable_entity
+      render :index, status: :unprocessable_entity
     end
   end
 
-  def trades_summary
+  def summary
     @trades_list = [{
       trade_type: 3,
       trade_date: Date.new(2019, 3, 1),
