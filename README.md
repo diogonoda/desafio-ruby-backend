@@ -100,11 +100,22 @@ Create database and load config data
 $ docker-compose run webapp bundle exec rails db:setup
 ```
 
+This next step is actually executed during container building process.
+
+Anyway, I've ran into a webpacker related error and this fixed.
+```
+$ docker-compose run webapp bundle exec rails webpacker:install
+```
+
 ### Running the application
 Let docker compose do the job for us
 ```
 $ docker-compose up
 ```
+
+The application will be accessible on `localhost:3000`
+
+
 
 ### Testing
 Run tests using rspec
@@ -119,7 +130,7 @@ $ docker-compose run webapp bundle exec rubocop
 ```
 
 ## Disclaimer
-When parsing data from a file with more than one line, there are a few different approaches for handling errors.j
+When parsing data from a file with more than one line, there are a few different approaches for handling errors.
 I could have aborted and rollback all the operations, or generate a new output file with a list of failures.
 Really depends on the scenario and on the opinion of the UX/product team. Due to the short interval I had to build
 this solution, I've arbitrarily chose to talk to no one and just do the less effort solution, which was logging the
