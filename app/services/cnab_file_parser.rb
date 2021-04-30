@@ -10,16 +10,16 @@ class CnabFileParser < ApplicationService
   end
 
   def call
-    counter = 0
+    raise NoContentFile if File.empty?(filename)
 
     File.foreach(filename) do |line|
       Trade.create!(parse(line))
-      counter += 1
+    rescue StandardError => e
+      Rails.logger.error(
+        "Failed to create trade record. error: #{e.message}."\
+        "Line from Cnab File: #{line}"
+      )
     end
-
-    raise NoContentFile if counter.zero?
-
-    counter
   end
 
   private

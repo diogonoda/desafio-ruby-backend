@@ -18,15 +18,15 @@ RSpec.describe 'Trades', type: :request do
 
       before { post cnab_upload_path, params: { cnab_filename: cnab_filename } }
 
-      it 'returns status code 200' do
-        expect(response).to have_http_status :ok
+      it 'returns status code 302' do
+        expect(response).to have_http_status :redirect
       end
     end
   end
 
-  describe 'GET /trades_summary' do
-    context 'when trades list is empty' do
-      before { get '/trades_summary' }
+  describe 'GET /index' do
+    context 'when accessing root page' do
+      before { get root_path }
 
       it 'returns status code 200' do
         expect(response).to have_http_status :ok

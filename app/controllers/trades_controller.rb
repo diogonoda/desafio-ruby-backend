@@ -7,25 +7,21 @@ class TradesController < ApplicationController
     if file_valid?
       CnabFileParser.call(cnab_params[:cnab_filename])
 
-      render :summary, status: :ok
+      redirect_to root_path
     else
       render :index, status: :unprocessable_entity
     end
   end
 
-  def summary
-    @trades_list = [{
-      trade_type: 3,
-      trade_date: Date.new(2019, 3, 1),
-      amount: 1420.0,
-      cpf: '096206760174',
-      card_number: '4753****3153',
-      trade_time: '153453',
-      store_owner: 'JOÃO MACEDO',
-      store_name: 'BAR DO JOÃO'
-    }]
+  def index
+    @trades = Trade.all.order(:store_name).includes(:trade_type)
 
-    head :ok
+    @total_by_store = @trades.each_with_object(Hash.new(0)) do |trade, acc|
+      acc[trade.store_name] = acc[trade.store_name].send(
+        trade.trade_type.operator,
+        trade.amount
+      )
+    end
   end
 
   private

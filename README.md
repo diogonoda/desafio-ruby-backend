@@ -118,6 +118,13 @@ Code quality evaluation is available with rubocop
 $ docker-compose run webapp bundle exec rubocop
 ```
 
+## Disclaimer
+When parsing data from a file with more than one line, there are a few different approaches for handling errors.j
+I could have aborted and rollback all the operations, or generate a new output file with a list of failures.
+Really depends on the scenario and on the opinion of the UX/product team. Due to the short interval I had to build
+this solution, I've arbitrarily chose to talk to no one and just do the less effort solution, which was logging the
+error message.
+
 ## ToDo
 
 - [x] Create a rails application running on docker
@@ -126,8 +133,10 @@ $ docker-compose run webapp bundle exec rubocop
 - [x] Build an API to retrieve trades list (mocked data)
 - [x] Create database and model layer
 - [x] Implement data parsing and persistence
-- [ ] Implement data extraction and presentation
+- [x] Implement data extraction and presentation
 - [x] Create the frontend layer with form for file input
-- [ ] Create the frontend layer with listing operations
-- [ ] Handle errors when uploading cnab file
-- [ ] Tests from frontend
+- [x] Create the frontend layer with listing operations
+- [ ] Handle errors when uploading cnab file (no file, error messages)
+- [ ] Tests for frontend
+- [ ] More test scenarios
+- [ ] Table for trades list

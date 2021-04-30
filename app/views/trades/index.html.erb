@@ -4,3 +4,27 @@
   <%= file_field_tag :cnab_filename %>
   <%= submit_tag "Import" %>
 <% end %>
+
+<% unless @trades.nil? || @trades.empty? %>
+  <br/>
+  <br/>
+  <h1>Trades summary</h1>
+
+  <% @total_by_store.each do |store_name, total| %>
+    <ul>
+      <div><%= store_name %></div>
+
+      <% @trades.select { |trade| trade.store_name == store_name }.each do |trade| %>
+        <div><%= trade.trade_type.name %></div>
+        <div><%= trade.trade_date %></div>
+        <div><%= trade.amount %></div>
+        <div><%= trade.cpf %></div>
+        <div><%= trade.card_number %></div>
+        <div><%= trade.time %></div>
+        <div><%= trade.store_owner %></div>
+      <% end %>
+
+      <div><%= "Total: #{total}" %></div>
+    </ul>
+  <% end %>
+<% end %>
